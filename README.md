@@ -15,7 +15,7 @@ Report link: [`report.tex` - Overleaf](https://www.overleaf.com/1772296625kqfbqm
 
 Presentation slide link: [`slide.tex` - Overleaf](https://www.overleaf.com/1772296625kqfbqmhkhmrz)
 
-## Contribution
+## Assignment
 
 1. WANG Yanbo: Report, Presentation slide
 
