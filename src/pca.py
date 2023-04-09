@@ -47,13 +47,14 @@ def eigen(X, mean):
     # Convert to the original eigenvectors, (d, N)
     eigvec = np.dot(X.T, eigvec)
 
-    # # Get norms of each row
-    # row_norm = LA.norm(eigvec, axis=1)
-    # # Reshape to broadcast
-    # eigvec = eigvec / row_norm.reshape(-1, 1)
-
     # NOTE: Normalize should be element-wise, not row-wise
-    eigvec = eigvec / LA.norm(eigvec)
+    # Row-wise normalization
+    # eigvec = eigvec / LA.norm(eigvec, axis=1).reshape(-1, 1)
+    # Element-wise normalization
+    # eigvec = eigvec / LA.norm(eigvec)
+
+    # Column-wise normalization
+    eigvec = eigvec / LA.norm(eigvec, axis=0)
     return eigval, eigvec
 
 
@@ -88,7 +89,7 @@ def euclidean(proj, weights):
     return np.array(dist)
 
 
-def pipeline(X_train, X_test, y_train, y_test, k = 150):
+def pipeline(X_train, X_test, y_train, k=150):
     """ Pipeline for face recognition using eigenfaces """
     # Compute mean face
     mean = mean_face(X_train)
